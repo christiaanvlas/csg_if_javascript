@@ -18,4 +18,4 @@ De standaard preview is handig, maar fullscreen is vaak fijner. Typ daarvoor in 
 python3 -m http.server 3000 &
 (en druk op enter)
 
-Na korte tijd verschijnt een blauw menuutje: kies daar voor "Open Browser".
+Na korte tijd verschijnt een blauw menuutje: kies daar voor "Open Browser".!
