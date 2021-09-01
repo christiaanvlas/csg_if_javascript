@@ -18,7 +18,8 @@ function setup() {
 }
 
 function draw() {
-  
+  image(spriteJos,0,0,celGrootte,celGrootte);
+  image(brug,0,0,901,601);
   tekenRaster();
 }
 
@@ -31,8 +32,11 @@ function tekenRaster() {
   HINT: je kunt terugkijken naar het raster dat je in H1 hebt gemaakt.
   Maak gebruik van de variabelen die bovenaan zijn gedeclareerd.
   */
-  
-      rect(4*celGrootte,2*celGrootte,celGrootte,celGrootte);
+  for (var a=0;a < aantalRijenRaster;a++){ 
+    for (var n=0;n < aantalKolommenRaster;n++){
+      rect(n*celGrootte,a*celGrootte,celGrootte,celGrootte);
+  }
+}
 
   pop();
 }
