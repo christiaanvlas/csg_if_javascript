@@ -9,8 +9,9 @@ function setup() {
   textSize(40);
   noStroke();
   vierkanten.push(30);
-  // voeg je eigen naam toe
-  // sorteer de array met namen
+  namen.push("Christiaan");
+  namen.sort();
+
   // verwijder het eerste element uit vierkanten
   noLoop();
 }
