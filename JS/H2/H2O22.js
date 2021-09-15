@@ -4,11 +4,12 @@ var bal = {
   x: null,
   y: 0,
   snelheidX: 8,
-  snelheidY: 5,
-  demping: 1.0,
+  snelheidY: 0,
+  demping: 0.9,
+  versnelling: 0.2,
   
   beweeg() {
-    
+    this.snelheidY += this.versnelling;
     this.x += this.snelheidX;
     this.y += this.snelheidY;
     

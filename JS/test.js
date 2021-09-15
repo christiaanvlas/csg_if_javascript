@@ -1,26 +1,42 @@
+var cirkel={
+  x:225,
+  y:225,
+  straal: 50,
+  snelheid: 4,
+teken(){
+  noStroke();
+  fill('red');
+  ellipse(this.x,this.y,this.straal);
+},
+beweeg(){
+  if (keyIsDown(LEFT_ARROW)) {
+    this.x -= this.snelheid;
+  }
+  if (keyIsDown(RIGHT_ARROW)) {
+    this.x += this.snelheid;
+  }
+  if (keyIsDown(UP_ARROW)) {
+    this.y -=this.snelheid;
+  }
+  if (keyIsDown(DOWN_ARROW)) {
+    this.y += this.snelheid;
+  }
+}
+}
+
+
 function setup() {
   canvas = createCanvas(450,450);
-  background('silver');
+
   canvas.parent('processing');
   //noLoop();
 }
 
-function draw() {
+
+function draw() { 
+   background('silver');
   noStroke();
-  for (var n = 0;n < 5;n++){
-    for(var n = 2){
-      fill('blue');
-    }
-tekenvierkant();
-translate( 95,0);
-}
+  cirkel.teken();
+  cirkel.beweeg(); 
 
 }
-
-function tekenvierkant(){
-  fill('red');
-  rect(0,200,70);
-
-}
-// fill('deepskyblue');
-// rect(250,200,80);
