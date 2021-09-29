@@ -133,6 +133,11 @@ function draw() {
   eve.toon();
   alice.toon();
   bob.toon();
+
+  if (alice.wordtGeraakt(bob)){
+    // bob.beweeg();
+    noLoop();
+  }
   
   if (eve.wordtGeraakt(alice) || eve.wordtGeraakt(bob)) {
     noLoop();
