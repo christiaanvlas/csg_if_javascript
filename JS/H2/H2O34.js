@@ -91,6 +91,14 @@ class Vijand {
   toon() {
     image(this.sprite,this.x,this.y,raster.celGrootte,raster.celGrootte);
   }
+  wordtGeraakt(vijand) {
+    if (this.x == vijand.x && this.y == vijand.y) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
 }
 
 function preload() {
@@ -135,8 +143,7 @@ function draw() {
   bob.toon();
 
   if (alice.wordtGeraakt(bob)){
-    // bob.beweeg();
-    noLoop();
+    bob.beweeg();
   }
   
   if (eve.wordtGeraakt(alice) || eve.wordtGeraakt(bob)) {
