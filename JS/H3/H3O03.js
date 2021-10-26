@@ -22,7 +22,6 @@ class Speler {
     **      EINDE klasse Speler   BEGIN klasse Galgje       **
     ********************************************************** */
 
-
 class Galgje {
   constructor(s,b) {
     this.speler = s;
@@ -132,7 +131,7 @@ function setup() {
 
   canvas = createCanvas(700,400);
   canvas.parent('processing');
-  speler = new Speler('Vincent');
+  speler = new Speler('poepiescheet');
   spel = new Galgje(speler,beeldjes);
   spel.teken();
 }

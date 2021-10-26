@@ -32,7 +32,7 @@ var knikkerVerzameling = [];
 function setup() {
   canvas = createCanvas(1000,300);
   canvas.parent('processing');
-  frameRate(50);
+  frameRate(60);
   colorMode(RGB,255,255,255,1);
   background(0,0,75,1);
   noStroke();
@@ -48,8 +48,6 @@ function draw() {
     knikkerVerzameling[i].teken();
   } 
   if (mouseIsPressed) {
-    for (var i = 0; i < knikkerVerzameling.length; i++) {
-      knikkerVerzameling[i].beweeg();
+      knikkerVerzameling.push(new Knikker(mouseX,mouseY,'red'));
     }
   }
-}

@@ -63,7 +63,8 @@ class Tennisbal {
     if (this.x<this.straal || this.x>canvas.width-this.straal) {
       this.snelheidX*=-1;
     }
-    if (this.y<this.straal || this.y>canvas.height-this.straal) {
+    if (this.y<this.straal ) {
+
       this.snelheidY*=-1;
     }    
   }
@@ -104,6 +105,20 @@ class Tennis {
     text("Dit is een simpel tennis-spel. Bestuur je racket met de a (links) en de d (rechts).\n\nDruk op de spatiebalk om het spel te starten.",0,0,canvas.width,canvas.height);
     pop();
   }
+
+  eindScherm() {
+
+    push();
+    textAlign(CENTER,CENTER);
+    fill(0);
+    text("Je hebt verloren, loser.",0,0,canvas.width,canvas.height);
+    pop(); 
+      if (this.y>canvas.height-this.straal){
+      eindScherm= true;
+    }
+  }
+
+  
   
   update() {
     if (spel.actief) {
@@ -111,6 +126,7 @@ class Tennis {
         this.b.reageerOpRacket(this.r);
       }
       this.b.beweeg();
+      this.r.beweeg();
     }
   }
   
@@ -147,15 +163,14 @@ function setup() {
 function draw() {
   spel.update();
   spel.teken();
+
 }
 
 function keyTyped() {
   if (!spel.actief && keyCode == 32) {
     spel.actief = true;
   }
-  else {
-    spel.r.beweeg();
-  }
+
 }
 
 /*  **********************************************************

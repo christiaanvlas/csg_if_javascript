@@ -81,9 +81,10 @@ function setup() {
   
   raster = new Raster(6,9);
   
-  raster.berekenCelGrootte();
-  bom1 = new Bom();
-  
+  raster.berekenCelGrootte(); 
+  for (var k = 0; k < 10; k++) {              
+    bommenArray.push(new Bom());
+  }   
   eve = new Jos();
   eve.stapGrootte=1*raster.celGrootte;
   for (var b = 0;b < 6;b++) {
@@ -103,8 +104,10 @@ function setup() {
 function draw() {
   background(brug);
   raster.teken();
-  bom1.toon();
 
+  for (var i = 0; i < bommenArray.length; i++) {
+    bommenArray[i].toon();
+  } 
   if (eve.aanDeBeurt) {
     eve.beweeg();
   }
