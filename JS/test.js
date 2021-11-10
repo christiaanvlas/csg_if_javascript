@@ -2,8 +2,8 @@ class cirkel{
   constructor(){
   this.x= random(10,1000);
   this.y= random(10,1000);
-  this.straal= 10;
-  this.snelheid= random(1,100);
+  this.straal= 30;
+  this.snelheid= 20;
   this.kleur= 'red';
   this.G = random(2,400);
   this.R= random(2,400);
@@ -38,12 +38,12 @@ function setup() {
 
   canvas.parent('processing');
   //noLoop();
-  for(var c =0; c <100;c++){ 
+  for(var c =0; c <3;c++){ 
     cirkels.push(new cirkel());
   }
   // cirkel1 = new cirkel(200,225,80,2,'red');
-  // cirkel2 = new cirkel(300,225,80,5,'blue');
-  // cirkel3 = new cirkel(400,225,80,8,'purple');
+  // cirkel2 = new cirkel(200,225,80,5,'blue');
+  // cirkel3 = new cirkel(200,225,80,8,'purple');
 
 }
 
