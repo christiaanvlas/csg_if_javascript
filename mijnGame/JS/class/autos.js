@@ -29,3 +29,15 @@ class Bal {
         pop();
     }
 }
+// class auto{
+//     constructor(x,y,kleur){
+//       this.breedte = 50;
+//       this.hoogte = 50;
+//       this.x = x;
+//       this.y = y;
+//       this.kleur = kleur;
+  
+  
+//     }
+// }
+  

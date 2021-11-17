@@ -1,8 +1,22 @@
+class auto{
+  constructor(x,y,kleur){
+    this.breedte = 50;
+    this.hoogte = 50;
+    this.x = x;
+    this.y = y;
+    this.kleur = kleur;
+
+
+  }
+
+
+}
+
 var jager = {
   x: 50,
   y: 50,
   zijde: 100,
-  stapGrootte: 2,
+  stapGrootte: 5,
 
   beweeg() {
     if (keyIsDown(LEFT_ARROW)) {
@@ -21,9 +35,10 @@ var jager = {
     this.x = constrain(this.x,0,canvas.width - this.zijde);
     this.y = constrain(this.y,0,canvas.height - this.zijde);
   },
-  
+
+
   vlakbijRand() {
-    if (this.x < 4*this.stapGrootte || this.x > canvas.width - 4*this.stapGrootte - this.zijde || this.y < 4*this.stapGrootte || this.y > canvas.height - 4*this.stapGrootte - this.zijde) {
+    if (this.x < 4*this.stapGrootte || this.x > canvas.width - 4*this.stapGrootte - this.zijde || this.y < 4*this.stapGrootte || this.y > canvas.height - 4*this.stapGrootte - this.zijde ) {
       return true;
     }
     else {
@@ -46,8 +61,8 @@ var prooi = {
   benGeraakt: false,
   
   wordJeGeraakt(vijand) {
-    if (vijand.x >= this.x - vijand.zijde && vijand.x <= this.x + this.breedte && vijand.y > this.y - vijand.zijde && vijand.y < this.y + this.hoogte) {
-      this.benGeraakt = true;
+    if (vijand.x >= this.x - vijand.zijde && vijand.x <= this.x + this.breedte && vijand.y >= this.y - vijand.zijde && vijand.y <= this.y + this.hoogte) {
+      this.benGeraakt=true;
     }
   },  
   
@@ -73,37 +88,14 @@ function setup() {
 function draw() {
   if (jager.vlakbijRand()) {
     background('red');
-    prooi.benGeraakt = false;
+    prooi.benGeraakt=false;
   }
   else {
     background('orange');
   }
   
   jager.beweeg();
+  prooi.wordJeGeraakt(jager);
+  prooi.teken();
   jager.teken();
- 
-beweeg() {
-
-  if (mouseIsPressed) {
-
-   
-
-      this.frameNummer = 2;
-
-    }
-
-    else {
-
-      this.frameNummer = 1;
-
-  function preload() {
-
-    brug = loadImage("images/backgrounds/dame_op_brug_1800.jpg");
-  
-    for (var b = 0;b < jos.aantalFrames;b++) {
-  
-      frame = loadImage("images/sprites/Jos100px/Jos_" + b + ".png");
-  
-      jos.animatie.push(frame);
-  
-    }
+}
