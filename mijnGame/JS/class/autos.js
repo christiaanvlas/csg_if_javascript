@@ -1,43 +1,48 @@
-class Bal {
-    constructor() {
-        this.diameter = 75;
-        this.straal = this.diameter / 2;
-        this.x = random(this.straal,canvas.width - this.straal);
-        this.y = random(this.straal,canvas.height - this.straal);
-        this.kleur = 200;
-        this.vx = random(-20,20);
-        this.vy = this.vx + random(-5,5);
-        this.actief = false;
-    }
-
-    beweeg() {
-        this.x += this.vx;
-        this.y += this.vy;
-        if (this.x < this.straal || this.x > canvas.width - this.straal) {
-            this.vx *= -1;
-        }
-        if (this.y < this.straal || this.y > canvas.height - this.straal) {
-            this.vy *= -1;
-        }        
-    }
-
-    teken() {
-        push();
-        noStroke();
-        fill(this.kleur);
-        ellipse(this.x,this.y,this.diameter);
-        pop();
+class auto{
+    constructor(x,y,kleur){
+    this.breedte = 50;
+    this.hoogte = 50;
+    this.x = x;
+    this.y = y;
+    this.kleur = kleur;
+    this.stapGrootte: 5,
+  
     }
 }
-// class auto{
-//     constructor(x,y,kleur){
-//       this.breedte = 50;
-//       this.hoogte = 50;
-//       this.x = x;
-//       this.y = y;
-//       this.kleur = kleur;
-  
-  
-//     }
-// }
+
+beweeg() {
+    if (keyIsDown(RIGHT_ARROW)) {
+      this.x += this.stapGrootte;
+    }
+    if (keyIsDown(UP_ARROW)) {
+      this.y -= this.stapGrootte;
+    }
+    if (keyIsDown(DOWN_ARROW)) {
+      this.y += this.stapGrootte;
+    }
+}
+
+teken() {
+    push();
+    noStroke();
+    noFill();
+    ellipse(this.x,this.y,this.diameter);
+    pop();
+}
+
+function keyTyped() {
+    if (spel.actief && key == 'z') {
+      spel.speler1.y += spel.snelheidSpeler;
+    }
+    if (spel.actief && key == 'q') {
+      spel.speler1.y -= spel.snelheidSpeler;
+    }
+    if (spel.actief && key == 'm') {
+      spel.speler2.y += spel.snelheidSpeler;
+    }
+    if (spel.actief && key == 'i') {
+      spel.speler2.y -= spel.snelheidSpeler;
+    }
+    return false;
+  }
   
